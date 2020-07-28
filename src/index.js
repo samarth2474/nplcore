@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+import {keys, values} from './api/index'
+
+let k =[]
+k=keys()
+console.log(k)
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App  />
   </React.StrictMode>,
+    
+ 
   document.getElementById('root')
 );
 
