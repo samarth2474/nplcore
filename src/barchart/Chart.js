@@ -1,58 +1,44 @@
 import React, {useState, useEffect} from 'react'
-// import {keys, values} from '../api/index'
+
 import Bar from 'react-chartjs-2'
 
-const url ='http://localhost:3000/timeseries'
-
-var k
-var v
-
-export const keys = async() => {
-    
-  fetch(`${url}/keys`)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        k= data
-        
-    })
-       
-
-};
-
-
-
-export const values = async() => {
-    
-  fetch(`${url}/values`)
-    .then((response) => response.json())
-    .then((data) => {
-       console.log(data)
-       v = data
-    })  
-
-};
-
-
-    const state = {
-        labels: k,
-        datasets: [
-          {
-            label: 'Rainfall',
-            backgroundColor: 'rgba(75,192,192,1)',
-            borderColor: 'rgba(0,0,0,1)',
-            borderWidth: 2,
-            data: v
-          }
+const state = {
+    labels: [
+      '2002', '2003', '2004',
+      '2005', '2006', '2007',
+      '2008', '2009', '2010',
+      '2011', '2012', '2013',
+      '2014', '2015', '2016',
+      '2017', '2018', '2019',
+      '2020'
+    ],
+    datasets: [
+      {
+        label: 'titles',
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: [
+          9,   5, 14,   3,   7, 6, 5,
+          8,   3,  2,  17,   5, 4, 3,
+          4, 148, 27, 273, 458       
         ]
+        
+        
       }
-      
-    const Chart =  <Bar
+    ]
+  }
+
+
+ const Chart =()=> {
+    return (
+    <div>
+        <Bar
           data={state}
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Titles published each year',
               fontSize:20
             },
             legend:{
@@ -62,6 +48,15 @@ export const values = async() => {
           }}
         />
 
+    </div>
+    )
+}
+export default Chart 
 
 
-export default Chart
+
+   
+      
+
+
+

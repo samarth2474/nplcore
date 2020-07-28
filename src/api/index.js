@@ -1,14 +1,13 @@
+// API calls
+
 const url ='http://localhost:3000/timeseries'
 
 
-export const keys = () => {
+export const keys = async() => {
     
-   fetch(`${url}/keys`)
-    .then((response) => response.json())
-    .then((data) => {
-        // console.log(data)
-        return data
-    })
+    let response= await fetch(`${url}/keys`)
+    let data = response.json
+    return data
     
        
 
@@ -16,9 +15,9 @@ export const keys = () => {
 
 
 
-export const values = () => {
+export const values = async() => {
     
-    fetch(`${url}/values`)
+    await fetch(`${url}/values`)
     .then((response) => response.json())
     .then((data) => {
        console.log(data)
